@@ -1,0 +1,274 @@
+@font-face {
+  font-family: 'Roboto-Regular';
+  src: url(./assets/fonts/Roboto-Regular.ttf);
+  font-family: 'Roboto-Bold';
+  src: url(./assets/fonts/Roboto-Bold.ttf)
+}
+
+:root{
+  /* primary */
+  --tomato: hsl(4, 100%, 67%);
+  /* neutral */
+  --dark-slate-gray: hsl(234, 29%, 20%);
+  --charcoal-gray: hsl(235, 18%, 26%);
+  --Grey: hsl(231, 7%, 60%);
+  --White: hsl(0, 0%, 100%);
+}
+html{
+  font-size: 16px;
+}
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body{
+  min-height: 100vh;
+  font-family: 'Roboto-Regular', sans-serif;
+}
+ul{
+  list-style: none;
+}
+img[alt="illustration sign up"]{
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+}
+label,
+button{
+  font-family: inherit;
+  font-size: inherit;
+}
+button{
+  display: block;
+}
+input{
+  border: 0;
+  outline: 1px solid var(--Grey);
+}
+input:active{
+  outline: 1px solid var(--dark-slate-gray);
+  cursor: pointer;
+}
+span{
+  font-family: 'Roboto-Bold', sans-serif;
+  float: right;
+  clear: right;
+  color: var(--tomato);
+  opacity: 0;
+}
+span.show-err{
+  opacity: 1;
+}
+picture{
+  display: block;
+  width: 100%;
+}
+
+.newsletter{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.img-wrapper{
+  width: 100%;
+}
+.main-content{
+  min-width: 100%;
+  min-height: 300px;
+  padding: 2rem  1.6rem;
+}
+.heading{
+  font-family: 'Roboto-Bold', sans-serif;
+  font-size: 2.4rem;
+  margin-bottom: 1.2rem;
+}
+.text{
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+.list{
+  font-size: 1.1rem;
+  margin-bottom: 2.2rem;
+}
+.list li{
+  margin-bottom: .7rem;
+  padding-left: 3rem;
+  background: url('./assets/images/icon-list.svg') no-repeat left 5px;
+  line-height: 1.6;
+}
+.list li :last-child{
+  margin-bottom: 0;
+}
+
+.email{
+  display: inline-block;
+  font-family: 'Roboto-Bold', sans-serif;
+  margin-bottom: .8rem;
+  cursor: pointer;
+}
+.email-input{
+  display: block;
+  width: 100%;
+  padding: 1rem 1.6rem;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.btn-primary{
+  width: 100%;
+  margin-top: 1.6rem;
+  border: 0;
+  background-color: var(--charcoal-gray);
+  color: var(--White);
+  font-family: 'Roboto-Bold', sans-serif;
+  padding: 1rem 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-primary:hover,
+.btn-secondary:hover{
+  background: linear-gradient(
+    to right,
+    var(--tomato) 0% 30%,
+    tomato 60%
+  );
+  box-shadow:
+    0 15px 38px var(--tomato)
+  ;
+}
+
+/* MEDIA QUERIES */
+
+/* Tablet design  */
+@media screen and (min-width: 510px) and (max-width: 768px){
+  .heading{
+    font-size: 3rem;
+  }
+  .text{
+    font-size: 1.7rem;
+  }
+  .list{
+    font-size: 1.3rem;
+  }
+}
+
+/* success message design */
+.overlay{
+  width: 100vw;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow-y: hidden;
+  background-color: var(--dark-slate-gray);
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+}
+.overlay.open{
+  opacity: 1;
+  pointer-events: all;
+}
+
+.message{
+  background-color: var(--White);
+  width: 40ch;
+  padding: 1.6rem 2.8rem;
+  border-radius: 20px;
+}
+img[alt="success"]{
+  width: 50px;
+  height: 50px;
+  margin: 1.6rem 0;
+}
+.msg-info h2{
+  font-family: 'Roboto-B  old', sans-serif;
+  font-size: 2.6rem;
+}
+.msg-info p{
+  font-family: 'Roboto-Regular', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 1.6rem 0;
+  ;
+}
+.btn-secondary{
+  font-family: 'Roboto-Bold', sans-serif;
+  border: 0;
+  display: block;
+  width: 100%;
+  padding: .8rem 0;
+  background-color: var(--dark-slate-gray);
+  color: var(--White);
+  border-radius: 10px;
+}
+
+/* error state */
+.error{
+  outline-color: var(--tomato);
+  color: var(--tomato);
+  font-size: 1rem;
+  background-color: hsla(5, 100%, 67%, 20%);
+}
+@media screen and (max-width: 425px) {
+  .message{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    /* padding: 1rem; */
+    border-radius: 0;
+  }
+  .msg-info p {
+    font-size: 1rem;
+  }
+  .btn-secondary{
+    align-self: flex-end;
+  }
+}
+
+
+/* Labtop design */
+@media screen and (min-width: 769px) {
+  body{
+    position: relative;
+    background-color: var(--dark-slate-gray);
+    width: 100vw;
+    height: 900px;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
+  }
+  .newsletter{
+    background-color: var(--White);
+    max-width: 1000px;
+    flex-direction: row;
+    padding: 2rem;
+    border-radius: 20px;
+  }
+  .img-wrapper{
+    flex: 1 300px;
+    order: 2;
+
+  }
+  .main-content{
+    min-width: 300px;
+    flex: 1 300px;
+    align-self: center;
+    padding: 0 3.5rem 0 1.6rem;
+    order: 1;
+  }
+  .heading{
+    font-size: 3rem;
+  }
+  img[alt="illustration sign up"]{
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}
